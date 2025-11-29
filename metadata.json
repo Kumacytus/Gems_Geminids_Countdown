@@ -1,0 +1,5 @@
+{
+  "name": "Geminids Countdown",
+  "description": "A minimalist, atmospheric countdown to the next Geminids Meteor Shower with moon phase advice.",
+  "requestFramePermissions": []
+}
