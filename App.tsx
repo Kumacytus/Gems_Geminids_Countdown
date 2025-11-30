@@ -74,14 +74,14 @@ const App: React.FC = () => {
 
   if (!geminidInfo || !moonInfo) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white font-cormorant text-2xl">
+      <div className="min-h-[100dvh] flex items-center justify-center bg-slate-950 text-white font-cormorant text-2xl">
         <p className="animate-pulse">Calculating Celestial Mechanics...</p>
       </div>
     );
   }
 
   return (
-    <main className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden selection:bg-indigo-500/30">
+    <main className="relative min-h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden selection:bg-indigo-500/30">
       
       {/* Background */}
       <StarBackground goldenMeteorsEnabled={isBirthday && hasSeenIntro} />
@@ -122,7 +122,7 @@ const App: React.FC = () => {
         </div>
 
         {/* Quote - Updated to use inline-block for icon to flow with text */}
-        <div className="text-slate-400 font-quote italic text-lg md:text-xl text-center animate-pulse-slow max-w-2xl px-2">
+        <div className="text-slate-400 font-quote italic text-base md:text-xl text-center animate-pulse-slow max-w-2xl px-2">
           <span>“{randomQuote}”</span>
           <span className="inline-block ml-2 align-middle">
             {isBirthday ? (
@@ -136,7 +136,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Footer */}
-      <footer className={`relative z-10 w-full p-8 md:p-12 text-center transition-opacity duration-1000 ${showIntro ? 'opacity-0' : 'opacity-100'}`}>
+      <footer className={`relative z-10 w-full px-8 pt-8 pb-[calc(2rem+env(safe-area-inset-bottom))] md:p-12 text-center transition-opacity duration-1000 ${showIntro ? 'opacity-0' : 'opacity-100'}`}>
         <div className="max-w-xl mx-auto p-4 transition-all duration-700">
           
           <div className="mb-4 flex flex-col items-center gap-1">
