@@ -93,16 +93,16 @@ const App: React.FC = () => {
       <div className={`relative z-10 w-full max-w-5xl px-6 flex flex-col items-center justify-center flex-grow transition-opacity duration-1000 ${showIntro ? 'opacity-0' : 'opacity-100'}`}>
         
         {/* Header Section */}
-        <div className="flex flex-col items-center mb-8 md:mb-12">
+        <div className="flex flex-col items-center mb-8 md:mb-12 w-full max-w-3xl">
           {/* Header Label - Dynamic based on status */}
-          <h1 className={`text-slate-400 text-xs md:text-sm font-serif tracking-[0.5em] uppercase mb-3 transition-all duration-1000 ${geminidInfo.status === 'ACTIVE' ? 'text-amber-200/90 font-bold drop-shadow-[0_0_10px_rgba(253,230,138,0.5)]' : 'opacity-80'}`}>
+          <h1 className={`text-slate-400 text-xs md:text-sm font-serif tracking-[0.5em] uppercase mb-3 text-center leading-relaxed transition-all duration-1000 ${geminidInfo.status === 'ACTIVE' ? 'text-amber-200/90 font-bold drop-shadow-[0_0_10px_rgba(253,230,138,0.5)]' : 'opacity-80'}`}>
             {geminidInfo.status === 'ACTIVE' 
               ? 'The Geminids are Here' 
               : 'Next Geminids Meteor Shower'}
           </h1>
 
           {/* Est. Peak Subtitle (Moved from Footer) */}
-          <span className="text-slate-700 font-serif text-[10px] tracking-wider uppercase">
+          <span className="text-slate-700 font-serif text-[10px] tracking-wider uppercase text-center">
              Est. Peak: {new Date(geminidInfo.peakDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
           </span>
         </div>
@@ -121,14 +121,16 @@ const App: React.FC = () => {
           )}
         </div>
 
-        {/* Quote */}
-        <div className="flex items-center gap-2 text-slate-400 font-quote italic text-lg md:text-xl text-center animate-pulse-slow">
+        {/* Quote - Updated to use inline-block for icon to flow with text */}
+        <div className="text-slate-400 font-quote italic text-lg md:text-xl text-center animate-pulse-slow max-w-2xl px-2">
           <span>“{randomQuote}”</span>
-          {isBirthday ? (
-            <GeminiStar size={18} className="text-amber-200/80 animate-spin-slow" />
-          ) : (
-            <PawPrint size={14} fill="currentColor" className="opacity-60 -rotate-12 text-slate-400 hover:text-pink-300 transition-colors duration-500" />
-          )}
+          <span className="inline-block ml-2 align-middle">
+            {isBirthday ? (
+              <GeminiStar size={18} className="text-amber-200/80 animate-spin-slow" />
+            ) : (
+              <PawPrint size={14} fill="currentColor" className="opacity-60 -rotate-12 text-slate-400 hover:text-pink-300 transition-colors duration-500" />
+            )}
+          </span>
         </div>
 
       </div>
